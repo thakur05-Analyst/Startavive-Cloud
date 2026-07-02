@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Startavive Cloud - Level Up Your Digital Presence. Premium Web & App Development.">
+    <title>Startavive Cloud | Digital Transformation Experts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#111827',
+                            900: '#0F172A',
+                            950: '#090D16',
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        },
+                        violet: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass {
+                @apply bg-slate-900/60 backdrop-blur-xl border border-slate-800 shadow-2xl;
+            }
+            .glass-card {
+                @apply bg-slate-900/40 backdrop-blur-md border border-slate-800 transition-all duration-300;
+            }
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen flex flex-col relative overflow-x-hidden">
+    
+    <!-- Background Accents -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute -top-[30%] -left-[10%] w-[60%] h-[60%] bg-violet-600/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+        <div class="absolute top-[40%] -right-[20%] w-[50%] h-[50%] bg-cyan-600/10 rounded-full blur-[120px] animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+    </div>
+
+    <!-- Fixed Sticky Header -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer group">
+                    <div class="relative flex items-center justify-center w-10 h-10">
+                        <svg class="w-10 h-10 group-hover:scale-110 transition-all duration-300 drop-shadow-[0_0_8px_rgba(6,182,212,0.4)]" viewBox="0 0 110 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="logo-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#0284c7" />
+                                    <stop offset="100%" stop-color="#38bdf8" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M 25 75 C 5 75, 5 40, 30 40 C 30 10, 60 10, 65 25 Q 67 21, 68 18 L 65 15 L 95 5 L 85 35 L 82 32 Q 65 55, 25 75 Z" fill="url(#logo-grad)" />
+                            <path d="M 30 82 Q 65 100, 95 75 C 120 50, 95 25, 85 37 Q 70 65, 30 82 Z" fill="url(#logo-grad)" />
+                        </svg>
+                    </div>
+                    <div class="flex flex-col leading-none text-left">
+                        <span class="text-xl md:text-[22px] font-black text-white tracking-tight uppercase">Startavive</span>
+                        <span class="text-xs md:text-[14px] font-bold text-cyan-500 tracking-widest mt-0.5 uppercase">Cloud</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-sm font-semibold text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Services</a>
+                    <a href="#why-us" class="text-sm font-semibold text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Why Choose Us</a>
+                    <a href="#process" class="text-sm font-semibold text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Process</a>
+                    <a href="#contact" class="text-sm font-semibold text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Contact</a>
+                </div>
+
+                <!-- CTA -->
+                <div class="hidden md:flex items-center">
+                    <a href="#contact" class="px-7 py-2.5 text-sm font-bold text-slate-950 bg-cyan-400 rounded-sm shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)] hover:bg-cyan-300 transition-all duration-300 uppercase tracking-widest">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-cyan-400 p-2 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-28 z-10 relative">
+        
+        <!-- Impact Hero Section -->
+        <section class="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32 border-b border-slate-800/50">
+            <!-- Background Video & Overlay -->
+            <div class="absolute inset-0 z-0">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-30">
+                    <source src="https://cdn.coverr.co/videos/coverr-typing-on-a-macbook-pro-2965/1080p.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/80 to-slate-950"></div>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-card border-cyan-500/30 text-xs font-bold text-cyan-400 tracking-widest uppercase mb-8 shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                    </span>
+                    ⚡ Digital Transformation Experts
+                </div>
+
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-6 leading-[1.1]">
+                    Level Up Your <br class="hidden md:block"/>
+                    <span class="text-gradient">Digital Presence</span>
+                </h1>
+                
+                <p class="mt-8 max-w-3xl mx-auto text-lg md:text-2xl text-slate-400 mb-10 leading-relaxed font-medium">
+                    We craft high-performance websites, custom apps, and scalable digital strategies that transform businesses into market leaders.
+                </p>
+
+                <div class="flex justify-center gap-4 text-sm md:text-base font-semibold text-slate-300 mb-12 uppercase tracking-wider">
+                    <span class="flex items-center gap-2"><span class="text-cyan-500">•</span> Custom Development</span>
+                    <span class="flex items-center gap-2"><span class="text-violet-500">•</span> Fast Delivery</span>
+                    <span class="flex items-center gap-2"><span class="text-emerald-500">•</span> Performance Optimized</span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="#contact" class="w-full sm:w-auto px-10 py-4 text-base font-bold text-slate-950 bg-cyan-400 rounded-sm shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] hover:bg-cyan-300 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest">
+                        Get Started
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto px-10 py-4 text-base font-bold text-white bg-slate-900 border border-slate-700 hover:border-cyan-400 rounded-sm hover:bg-slate-800 transition-all duration-300 uppercase tracking-widest">
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- "Why Choose Us" Core Pillars Grid -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" id="why-us">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">Why Choose Us</h2>
+                <div class="h-1 w-24 bg-cyan-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Pillar 1 -->
+                <div class="p-8 rounded-xl glass-card relative overflow-hidden group hover:border-cyan-500/50">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-start gap-6 relative z-10">
+                        <div class="w-14 h-14 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 group-hover:border-cyan-500/50 transition-colors">
+                            <svg class="w-7 h-7 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">Lightning Fast Performance</h3>
+                            <p class="text-slate-400 leading-relaxed">We obsess over speed optimization. We build clean, maintainable code architectures that guarantee sub-second load times and flawless user experiences across all devices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="p-8 rounded-xl glass-card relative overflow-hidden group hover:border-violet-500/50">
+                    <div class="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-start gap-6 relative z-10">
+                        <div class="w-14 h-14 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 group-hover:border-violet-500/50 transition-colors">
+                            <svg class="w-7 h-7 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">Enterprise-Grade Security</h3>
+                            <p class="text-slate-400 leading-relaxed">Your data is locked down. We implement advanced infrastructure encryption, comprehensive safeguards, and strict access protocols to protect your business.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="p-8 rounded-xl glass-card relative overflow-hidden group hover:border-emerald-500/50">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-start gap-6 relative z-10">
+                        <div class="w-14 h-14 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 group-hover:border-emerald-500/50 transition-colors">
+                            <svg class="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">SEO Optimized</h3>
+                            <p class="text-slate-400 leading-relaxed">Our platforms are built for search engines from day one. We ensure high organic visibility through clean technical indexing parameters and semantic HTML architectures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="p-8 rounded-xl glass-card relative overflow-hidden group hover:border-cyan-500/50">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-start gap-6 relative z-10">
+                        <div class="w-14 h-14 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center shrink-0 group-hover:border-cyan-500/50 transition-colors">
+                            <svg class="w-7 h-7 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">24/7 Dedicated Support</h3>
+                            <p class="text-slate-400 leading-relaxed">We don't disappear after launch. Our ongoing engineering availability ensures your systems remain updated, secure, and running flawlessly around the clock.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- "What We Do" Core Services Architecture -->
+        <section class="border-y border-slate-800 bg-slate-900/40 py-24" id="services">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">Core Capabilities</h2>
+                    <div class="h-1 w-24 bg-violet-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Service 1: Web Dev -->
+                    <div class="bg-slate-950 border border-slate-800 p-8 rounded-xl hover:border-cyan-500/50 transition-colors group">
+                        <h3 class="text-3xl font-black text-white mb-4 uppercase tracking-tighter group-hover:text-cyan-400 transition-colors">Web Development</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed">Custom websites built with modern stacks for speed, scalability, and stunning user experiences that convert visitors into clients.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 rounded-full">Custom Web Apps</span>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 rounded-full">E-commerce</span>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 rounded-full">CMS</span>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 rounded-full">API Integration</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: App Dev -->
+                    <div class="bg-slate-950 border border-slate-800 p-8 rounded-xl hover:border-violet-500/50 transition-colors group">
+                        <h3 class="text-3xl font-black text-white mb-4 uppercase tracking-tighter group-hover:text-violet-400 transition-colors">App Development</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed">Native and cross-platform mobile apps that engage users, dominate app stores, and drive serious business growth.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-violet-400 bg-violet-400/10 border border-violet-400/20 rounded-full">iOS Apps</span>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-violet-400 bg-violet-400/10 border border-violet-400/20 rounded-full">Android Apps</span>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-violet-400 bg-violet-400/10 border border-violet-400/20 rounded-full">Cross-Platform</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Cloud & Automation -->
+                    <div class="bg-slate-950 border border-slate-800 p-8 rounded-xl hover:border-emerald-500/50 transition-colors group">
+                        <h3 class="text-3xl font-black text-white mb-4 uppercase tracking-tighter group-hover:text-emerald-400 transition-colors">Cloud & Automation</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed">Scalable backends, AI data systems, and heavy traffic management. We architect infrastructure that never sleeps.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-full">AWS/GCP Architecture</span>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-full">Serverless</span>
+                            <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-full">CI/CD Pipelines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Sprint Process Timeline -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24" id="process">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">Our Process</h2>
+                <div class="h-1 w-24 bg-emerald-500 mx-auto rounded-full"></div>
+                <p class="mt-6 text-slate-400 max-w-2xl mx-auto font-medium">A seamless development lifecycle designed for speed, precision, and zero friction.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-slate-800 -translate-y-1/2 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-full bg-slate-950 border-2 border-slate-700 group-hover:border-cyan-400 flex items-center justify-center mb-6 transition-colors shadow-lg">
+                        <span class="text-2xl font-black text-slate-300 group-hover:text-cyan-400">01</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">Research & Audit</h4>
+                    <p class="text-sm text-slate-500 px-4">A deep dive into your target scope, competitors, and technical requirements.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-full bg-slate-950 border-2 border-slate-700 group-hover:border-violet-400 flex items-center justify-center mb-6 transition-colors shadow-lg">
+                        <span class="text-2xl font-black text-slate-300 group-hover:text-violet-400">02</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">Architecture & Design</h4>
+                    <p class="text-sm text-slate-500 px-4">Mapping components, wireframing UI/UX, and planning the data structures.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-full bg-slate-950 border-2 border-slate-700 group-hover:border-emerald-400 flex items-center justify-center mb-6 transition-colors shadow-lg">
+                        <span class="text-2xl font-black text-slate-300 group-hover:text-emerald-400">03</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">Fast Implementation</h4>
+                    <p class="text-sm text-slate-500 px-4">Agile execution. We write clean code and rapidly build out your required features.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 rounded-full bg-slate-950 border-2 border-slate-700 group-hover:border-cyan-400 flex items-center justify-center mb-6 transition-colors shadow-lg">
+                        <span class="text-2xl font-black text-slate-300 group-hover:text-cyan-400">04</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">Test & Deploy</h4>
+                    <p class="text-sm text-slate-500 px-4">Rigorous quality controls, performance testing, and a flawless launch.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- High-Conversion Lead Intake Form -->
+        <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative" id="contact">
+            <div class="absolute -left-32 top-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="absolute -right-32 bottom-0 w-64 h-64 bg-violet-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="glass-card rounded-sm p-8 md:p-12 relative z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                <div class="mb-10 text-center" id="formHeader">
+                    <h2 class="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tighter">Ready to Scale?</h2>
+                    <p class="text-slate-400 font-medium">Fill out the project brief below to share your requirements, and our team will contact you shortly.</p>
+                </div>
+
+                <form id="contactForm" action="https://formsubmit.co/startavivecloud@gmail.com" method="POST" class="space-y-6 relative z-10">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Name</label>
+                            <input type="text" name="Name" id="name" required class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Your Email</label>
+                            <input type="email" name="Email" id="email" required class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="john@company.com">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="phone" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Phone Number</label>
+                            <input type="tel" name="Phone Number" id="phone" required class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div>
+                            <label for="target" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Project Target</label>
+                            <div class="relative">
+                                <select id="target" name="Project Target" required class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white appearance-none focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors">
+                                    <option value="" disabled selected class="text-slate-600">Select required service</option>
+                                    <option value="website-general">Website</option>
+                                    <option value="website">Custom Website</option>
+                                    <option value="mobile">Mobile App</option>
+                                    <option value="ecommerce">E-commerce</option>
+                                    <option value="webapp">Full Stack Web App</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="details" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Project Details</label>
+                        <textarea id="details" name="Project Details" required rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="Tell us about your business goals and technical requirements..."></textarea>
+                    </div>
+
+                    <button id="submitBtn" type="submit" class="w-full py-4 text-sm font-black text-slate-950 bg-cyan-400 rounded-sm shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:bg-cyan-300 transition-all duration-300 uppercase tracking-widest mt-4">
+                        Launch Project Blueprint
+                    </button>
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="hidden text-center py-10 relative z-10">
+                    <div class="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+                        <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-2 uppercase tracking-wide">Submission Successful</h3>
+                    <p class="text-emerald-400 font-bold text-lg">✔ We will contact you soon!</p>
+                </div>
+                    
+                <div class="mt-10 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 border-t border-slate-800/80 pt-8">
+                    <span class="text-slate-500 text-xs font-bold uppercase tracking-widest">Or connect directly on</span>
+                    <a href="https://wa.me/919640929350?text=Hi%20Startavive%20Cloud%2C%20I%20am%20interested%20in%20collaborating%20with%20you%20on%20a%20project.%20I%20would%20love%20to%20discuss%20my%20requirements%20and%20request%20a%20quote." target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors font-bold tracking-wide group bg-emerald-500/10 px-4 py-2 rounded-full border border-emerald-500/20 hover:border-emerald-500/40">
+                        <svg class="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.031 0C5.385 0 0 5.385 0 12.032c0 2.13.551 4.204 1.6 6.046L.234 23.364l5.44-1.428A11.97 11.97 0 0012.031 24c6.646 0 12.033-5.385 12.033-12.032S18.677 0 12.031 0zm0 21.996a9.92 9.92 0 01-5.06-1.378l-.362-.214-3.766.988.998-3.673-.235-.374a9.922 9.922 0 01-1.542-5.313c0-5.508 4.484-9.992 9.992-9.992s9.993 4.484 9.993 9.992-4.485 9.992-9.993 9.992zm5.485-7.498c-.3-.15-1.776-.877-2.052-.977-.275-.1-.476-.15-.676.15-.201.3-.776.977-.951 1.177-.176.2-.351.226-.651.076-1.3-.65-2.29-1.33-3.177-2.677-.226-.35-.026-.525.125-.675.125-.125.3-.325.45-.5.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.676-1.626-.926-2.226-.25-.6-.5-.525-.676-.525h-.576c-.2 0-.526.075-.801.375s-1.052 1.026-1.052 2.502 1.077 2.902 1.227 3.102c.15.2 2.102 3.203 5.08 4.478 2.052.876 2.802.951 3.827.801 1.026-.15 3.253-1.326 3.704-2.602.45-1.276.45-2.377.3-2.602-.15-.226-.551-.351-.851-.501z"/>
+                        </svg>
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex justify-center md:justify-start mb-6 md:mb-0">
+                    <div class="flex items-center gap-2 group cursor-pointer">
+                        <svg class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity" viewBox="0 0 110 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 25 75 C 5 75, 5 40, 30 40 C 30 10, 60 10, 65 25 Q 67 21, 68 18 L 65 15 L 95 5 L 85 35 L 82 32 Q 65 55, 25 75 Z" fill="#94a3b8" />
+                            <path d="M 30 82 Q 65 100, 95 75 C 120 50, 95 25, 85 37 Q 70 65, 30 82 Z" fill="#94a3b8" />
+                        </svg>
+                        <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">Startavive Cloud</span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center space-x-8 md:order-2">
+                    <a href="#" class="text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-cyan-400 transition-colors">Terms of Service</a>
+                </div>
+                
+                <div class="mt-8 md:mt-0 md:order-1 flex justify-center">
+                    <p class="text-center text-xs text-slate-600 font-semibold uppercase tracking-wider">
+                        &copy; 2026 Startavive Cloud Inc. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if(response.ok) {
+                    document.getElementById('formHeader').classList.add('hidden');
+                    form.classList.add('hidden');
+                    document.getElementById('successMessage').classList.remove('hidden');
+                } else {
+                    alert('Oops! There was a problem submitting your form');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            }).catch(error => {
+                alert('Oops! There was a problem submitting your form');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</html>
