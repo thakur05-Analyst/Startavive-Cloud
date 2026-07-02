@@ -362,13 +362,59 @@
                     <p class="text-slate-400 font-medium">Fill out the project brief below to share your requirements, and our team will contact you shortly.</p>
                 </div>
 
-                <!-- Google Form Embed -->
-                <div class="w-full relative z-10 bg-white/5 rounded-sm border border-slate-800 overflow-hidden min-h-[600px] flex items-center justify-center">
-                    <!-- REPLACE the src attribute below with your Google Form "Embed HTML" link -->
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" class="w-full">Loading…</iframe>
-                </div>
-                <div class="text-center mt-6 relative z-10">
-                    <p class="text-sm font-bold text-cyan-400 p-4 border border-cyan-500/30 bg-cyan-500/10 rounded-sm">To connect your form, edit index.html and replace the iframe src with your Google Form embed link.</p>
+                <form id="contactForm" action="https://formsubmit.co/startavivecloud@gmail.com" method="POST" class="space-y-6 relative z-10">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Name</label>
+                            <input type="text" name="Name" id="name" required class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Your Email</label>
+                            <input type="email" name="Email" id="email" required class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="john@company.com">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="phone" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Phone Number</label>
+                            <input type="tel" name="Phone Number" id="phone" required class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div>
+                            <label for="target" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Project Target</label>
+                            <div class="relative">
+                                <select id="target" name="Project Target" required class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white appearance-none focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors">
+                                    <option value="" disabled selected class="text-slate-600">Select required service</option>
+                                    <option value="website-general">Website</option>
+                                    <option value="website">Custom Website</option>
+                                    <option value="mobile">Mobile App</option>
+                                    <option value="ecommerce">E-commerce</option>
+                                    <option value="webapp">Full Stack Web App</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="details" class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Project Details</label>
+                        <textarea id="details" name="Project Details" required rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-sm px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="Tell us about your business goals and technical requirements..."></textarea>
+                    </div>
+
+                    <button id="submitBtn" type="submit" class="w-full py-4 text-sm font-black text-slate-950 bg-cyan-400 rounded-sm shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:bg-cyan-300 transition-all duration-300 uppercase tracking-widest mt-4">
+                        Launch Project Blueprint
+                    </button>
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="hidden text-center py-10 relative z-10">
+                    <div class="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+                        <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-2 uppercase tracking-wide">Submission Successful</h3>
+                    <p class="text-emerald-400 font-bold text-lg">✔ We will contact you soon!</p>
                 </div>
                     
                 <div class="mt-10 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 border-t border-slate-800/80 pt-8">
@@ -444,6 +490,38 @@
     </div>
 </body>
     <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if(response.ok) {
+                    document.getElementById('formHeader').classList.add('hidden');
+                    form.classList.add('hidden');
+                    document.getElementById('successMessage').classList.remove('hidden');
+                } else {
+                    alert('Oops! There was a problem submitting your form');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            }).catch(error => {
+                alert('Oops! There was a problem submitting your form');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+
         // Mobile Menu Logic
         const mobileMenu = document.getElementById('mobileMenu');
         const openMenuBtn = document.getElementById('openMenuBtn');
