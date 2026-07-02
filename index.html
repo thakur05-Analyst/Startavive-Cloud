@@ -57,6 +57,24 @@
             .pb-safe {
                 padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);
             }
+            /* Skeleton Scroll Reveal */
+            .skeleton-mode {
+                @apply bg-slate-800 animate-pulse rounded-lg !important;
+                color: transparent !important;
+                border-color: transparent !important;
+                box-shadow: none !important;
+                pointer-events: none;
+            }
+            .skeleton-mode * {
+                opacity: 0 !important;
+            }
+            .revealed {
+                animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+            @keyframes revealUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
         }
     </style>
 </head>
@@ -538,6 +556,34 @@
         
         mobileLinks.forEach(link => {
             link.addEventListener('click', toggleMenu);
+        });
+
+        // Skeleton Loader Scroll Reveal Logic
+        document.addEventListener("DOMContentLoaded", function() {
+            // Target all cards, major text blocks, and the form
+            const elementsToReveal = document.querySelectorAll('h1, h2, h3, p, .glass-card, .grid > div, form');
+            
+            // Add skeleton-mode to all targets immediately
+            elementsToReveal.forEach(el => {
+                if(!el.closest('nav') && !el.closest('footer') && !el.closest('#mobileMenu')) { // Don't hide nav/footer
+                    el.classList.add('skeleton-mode');
+                }
+            });
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Simulate network load time for skeleton effect
+                        setTimeout(() => {
+                            entry.target.classList.remove('skeleton-mode');
+                            entry.target.classList.add('revealed');
+                        }, Math.random() * 300 + 200); // 200-500ms staggered delay
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+            document.querySelectorAll('.skeleton-mode').forEach(el => observer.observe(el));
         });
     </script>
 </html>
