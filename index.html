@@ -121,11 +121,13 @@
                 </div>
 
                 <!-- Desktop Links -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Services</a>
-                    <a href="#why-us" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Why Choose Us</a>
-                    <a href="#process" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Process</a>
-                    <a href="#contact" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Contact</a>
+                <div class="hidden md:flex items-center space-x-8 relative" id="desktopNavLinks">
+                    <!-- Sliding active indicator -->
+                    <div id="navSlider" class="absolute -bottom-8 left-0 h-[3px] bg-cyan-400 rounded-t-md transition-all duration-300 ease-out opacity-0 pointer-events-none shadow-[0_-2px_10px_rgba(6,182,212,0.8)]"></div>
+                    <a href="#services" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Services</a>
+                    <a href="#why-us" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Why Choose Us</a>
+                    <a href="#process" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Process</a>
+                    <a href="#contact" class="nav-link text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-cyan-400 transition-colors uppercase tracking-wide">Contact</a>
                 </div>
 
                 <!-- CTA -->
@@ -149,7 +151,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobileMenu" class="fixed inset-0 z-50 bg-slate-50 dark:bg-slate-950/98 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 transform translate-x-full transition-transform duration-300 md:hidden">
-        <button id="closeMenuBtn" class="absolute top-6 right-4 text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 p-2 focus:outline-none">
+        <button id="closeMenuBtn" class="absolute top-6 right-4 text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 p-2 focus:outline-none">
             <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
@@ -188,7 +190,7 @@
                     <span class="text-gradient">Digital Presence</span>
                 </h1>
                 
-                <p class="mt-8 max-w-3xl mx-auto text-lg md:text-2xl text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 mb-10 leading-relaxed font-medium">
+                <p class="mt-8 max-w-3xl mx-auto text-lg md:text-2xl text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 mb-10 leading-relaxed font-medium">
                     We craft high-performance websites, custom apps, and scalable digital strategies that transform businesses into market leaders.
                 </p>
 
@@ -228,7 +230,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">Lightning Fast Performance</h3>
-                            <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 leading-relaxed">We obsess over speed optimization. We build clean, maintainable code architectures that guarantee sub-second load times and flawless user experiences across all devices.</p>
+                            <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 leading-relaxed">We obsess over speed optimization. We build clean, maintainable code architectures that guarantee sub-second load times and flawless user experiences across all devices.</p>
                         </div>
                     </div>
                 </div>
@@ -244,7 +246,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">Enterprise-Grade Security</h3>
-                            <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 leading-relaxed">Your data is locked down. We implement advanced infrastructure encryption, comprehensive safeguards, and strict access protocols to protect your business.</p>
+                            <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 leading-relaxed">Your data is locked down. We implement advanced infrastructure encryption, comprehensive safeguards, and strict access protocols to protect your business.</p>
                         </div>
                     </div>
                 </div>
@@ -260,7 +262,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">SEO Optimized</h3>
-                            <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 leading-relaxed">Our platforms are built for search engines from day one. We ensure high organic visibility through clean technical indexing parameters and semantic HTML architectures.</p>
+                            <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 leading-relaxed">Our platforms are built for search engines from day one. We ensure high organic visibility through clean technical indexing parameters and semantic HTML architectures.</p>
                         </div>
                     </div>
                 </div>
@@ -276,7 +278,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">24/7 Dedicated Support</h3>
-                            <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 leading-relaxed">We don't disappear after launch. Our ongoing engineering availability ensures your systems remain updated, secure, and running flawlessly around the clock.</p>
+                            <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 leading-relaxed">We don't disappear after launch. Our ongoing engineering availability ensures your systems remain updated, secure, and running flawlessly around the clock.</p>
                         </div>
                     </div>
                 </div>
@@ -295,7 +297,7 @@
                     <!-- Service 1: Web Dev -->
                     <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 rounded-xl hover:border-cyan-500/50 transition-colors group">
                         <h3 class="text-3xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tighter group-hover:text-cyan-400 transition-colors">Web Development</h3>
-                        <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 mb-8 leading-relaxed">Custom websites built with modern stacks for speed, scalability, and stunning user experiences that convert visitors into clients.</p>
+                        <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 mb-8 leading-relaxed">Custom websites built with modern stacks for speed, scalability, and stunning user experiences that convert visitors into clients.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 rounded-full">Custom Web Apps</span>
                             <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 rounded-full">E-commerce</span>
@@ -307,7 +309,7 @@
                     <!-- Service 2: App Dev -->
                     <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 rounded-xl hover:border-violet-500/50 transition-colors group">
                         <h3 class="text-3xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tighter group-hover:text-violet-400 transition-colors">App Development</h3>
-                        <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 mb-8 leading-relaxed">Native and cross-platform mobile apps that engage users, dominate app stores, and drive serious business growth.</p>
+                        <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 mb-8 leading-relaxed">Native and cross-platform mobile apps that engage users, dominate app stores, and drive serious business growth.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-violet-400 bg-violet-400/10 border border-violet-400/20 rounded-full">iOS Apps</span>
                             <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-violet-400 bg-violet-400/10 border border-violet-400/20 rounded-full">Android Apps</span>
@@ -318,7 +320,7 @@
                     <!-- Service 3: Cloud & Automation -->
                     <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 rounded-xl hover:border-emerald-500/50 transition-colors group">
                         <h3 class="text-3xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tighter group-hover:text-emerald-400 transition-colors">Cloud & Automation</h3>
-                        <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 mb-8 leading-relaxed">Scalable backends, AI data systems, and heavy traffic management. We architect infrastructure that never sleeps.</p>
+                        <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 mb-8 leading-relaxed">Scalable backends, AI data systems, and heavy traffic management. We architect infrastructure that never sleeps.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-full">AWS/GCP Architecture</span>
                             <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-full">Serverless</span>
@@ -334,7 +336,7 @@
             <div class="text-center mb-20">
                 <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 uppercase tracking-tight">Our Process</h2>
                 <div class="h-1 w-24 bg-emerald-500 mx-auto rounded-full"></div>
-                <p class="mt-6 text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 max-w-2xl mx-auto font-medium">A seamless development lifecycle designed for speed, precision, and zero friction.</p>
+                <p class="mt-6 text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 max-w-2xl mx-auto font-medium">A seamless development lifecycle designed for speed, precision, and zero friction.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
@@ -347,7 +349,7 @@
                         <span class="text-2xl font-black text-slate-600 dark:text-slate-300 group-hover:text-cyan-400">01</span>
                     </div>
                     <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">Research & Audit</h4>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 px-4">A deep dive into your target scope, competitors, and technical requirements.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 px-4">A deep dive into your target scope, competitors, and technical requirements.</p>
                 </div>
 
                 <!-- Step 2 -->
@@ -356,7 +358,7 @@
                         <span class="text-2xl font-black text-slate-600 dark:text-slate-300 group-hover:text-violet-400">02</span>
                     </div>
                     <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">Architecture & Design</h4>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 px-4">Mapping components, wireframing UI/UX, and planning the data structures.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 px-4">Mapping components, wireframing UI/UX, and planning the data structures.</p>
                 </div>
 
                 <!-- Step 3 -->
@@ -365,7 +367,7 @@
                         <span class="text-2xl font-black text-slate-600 dark:text-slate-300 group-hover:text-emerald-400">03</span>
                     </div>
                     <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">Fast Implementation</h4>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 px-4">Agile execution. We write clean code and rapidly build out your required features.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 px-4">Agile execution. We write clean code and rapidly build out your required features.</p>
                 </div>
 
                 <!-- Step 4 -->
@@ -374,7 +376,7 @@
                         <span class="text-2xl font-black text-slate-600 dark:text-slate-300 group-hover:text-cyan-400">04</span>
                     </div>
                     <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">Test & Deploy</h4>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 px-4">Rigorous quality controls, performance testing, and a flawless launch.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 px-4">Rigorous quality controls, performance testing, and a flawless launch.</p>
                 </div>
             </div>
         </section>
@@ -387,29 +389,29 @@
             <div class="glass-card rounded-sm p-8 md:p-12 relative z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                 <div class="mb-10 text-center" id="formHeader">
                     <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4 uppercase tracking-tighter">Ready to Scale?</h2>
-                    <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 font-medium">Fill out the project brief below to share your requirements, and our team will contact you shortly.</p>
+                    <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 font-medium">Fill out the project brief below to share your requirements, and our team will contact you shortly.</p>
                 </div>
 
                 <form id="contactForm" action="https://formsubmit.co/startavivecloud@gmail.com" method="POST" class="space-y-6 relative z-10">
                     <input type="hidden" name="_captcha" value="false">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="name" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Name</label>
+                            <label for="name" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Name</label>
                             <input type="text" name="Name" id="name" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="John Doe">
                         </div>
                         <div>
-                            <label for="email" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Your Email</label>
+                            <label for="email" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Your Email</label>
                             <input type="email" name="Email" id="email" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="john@company.com">
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="phone" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Phone Number</label>
+                            <label for="phone" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Phone Number</label>
                             <input type="tel" name="Phone Number" id="phone" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="+1 (555) 000-0000">
                         </div>
                         <div>
-                            <label for="target" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Project Target</label>
+                            <label for="target" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Project Target</label>
                             <div class="relative">
                                 <select id="target" name="Project Target" required class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm px-4 py-3.5 text-slate-900 dark:text-white appearance-none focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors">
                                     <option value="" disabled selected class="text-slate-600">Select required service</option>
@@ -419,7 +421,7 @@
                                     <option value="ecommerce">E-commerce</option>
                                     <option value="webapp">Full Stack Web App</option>
                                 </select>
-                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500 dark:text-slate-400 dark:text-slate-400">
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </div>
                             </div>
@@ -427,7 +429,7 @@
                     </div>
 
                     <div>
-                        <label for="details" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Project Details</label>
+                        <label for="details" class="block text-xs font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest mb-2">Project Details</label>
                         <textarea id="details" name="Project Details" required rows="4" class="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-sm px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="Tell us about your business goals and technical requirements..."></textarea>
                     </div>
 
@@ -446,7 +448,7 @@
                 </div>
                     
                 <div class="mt-10 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 border-t border-slate-200 dark:border-slate-800/80 pt-8">
-                    <span class="text-slate-500 dark:text-slate-400 dark:text-slate-400 text-xs font-bold uppercase tracking-widest">Or connect directly on</span>
+                    <span class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 text-xs font-bold uppercase tracking-widest">Or connect directly on</span>
                     <a href="https://wa.me/919640929350?text=Hi%20Startavive%20Cloud%2C%20I%20am%20interested%20in%20collaborating%20with%20you%20on%20a%20project.%20I%20would%20love%20to%20discuss%20my%20requirements%20and%20request%20a%20quote." target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors font-bold tracking-wide group bg-emerald-500/10 px-4 py-2 rounded-full border border-emerald-500/20 hover:border-emerald-500/40">
                         <svg class="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12.031 0C5.385 0 0 5.385 0 12.032c0 2.13.551 4.204 1.6 6.046L.234 23.364l5.44-1.428A11.97 11.97 0 0012.031 24c6.646 0 12.033-5.385 12.033-12.032S18.677 0 12.031 0zm0 21.996a9.92 9.92 0 01-5.06-1.378l-.362-.214-3.766.988.998-3.673-.235-.374a9.922 9.922 0 01-1.542-5.313c0-5.508 4.484-9.992 9.992-9.992s9.993 4.484 9.993 9.992-4.485 9.992-9.993 9.992zm5.485-7.498c-.3-.15-1.776-.877-2.052-.977-.275-.1-.476-.15-.676.15-.201.3-.776.977-.951 1.177-.176.2-.351.226-.651.076-1.3-.65-2.29-1.33-3.177-2.677-.226-.35-.026-.525.125-.675.125-.125.3-.325.45-.5.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.676-1.626-.926-2.226-.25-.6-.5-.525-.676-.525h-.576c-.2 0-.526.075-.801.375s-1.052 1.026-1.052 2.502 1.077 2.902 1.227 3.102c.15.2 2.102 3.203 5.08 4.478 2.052.876 2.802.951 3.827.801 1.026-.15 3.253-1.326 3.704-2.602.45-1.276.45-2.377.3-2.602-.15-.226-.551-.351-.851-.501z"/>
@@ -469,13 +471,13 @@
                             <path d="M 25 75 C 5 75, 5 40, 30 40 C 30 10, 60 10, 65 25 Q 67 21, 68 18 L 65 15 L 95 5 L 85 35 L 82 32 Q 65 55, 25 75 Z" fill="#94a3b8" />
                             <path d="M 30 82 Q 65 100, 95 75 C 120 50, 95 25, 85 37 Q 70 65, 30 82 Z" fill="#94a3b8" />
                         </svg>
-                        <span class="text-sm font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest">Startavive Cloud</span>
+                        <span class="text-sm font-bold text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 uppercase tracking-widest">Startavive Cloud</span>
                     </div>
                 </div>
                 
                 <div class="flex flex-wrap justify-center gap-4 md:gap-8 md:order-2">
-                    <a href="#" class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">Terms of Service</a>
                 </div>
                 
                 <div class="mt-8 md:mt-0 md:order-1 flex justify-center">
@@ -490,19 +492,19 @@
     <!-- Mobile Bottom Navigation -->
     <div class="fixed bottom-0 left-0 right-0 z-50 glass border-t border-slate-200 dark:border-slate-800 md:hidden pb-safe">
         <div class="flex justify-around items-center h-16 px-2">
-            <a href="#" class="flex flex-col items-center justify-center w-full h-full text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">
+            <a href="#" class="flex flex-col items-center justify-center w-full h-full text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">
                 <svg class="w-5 h-5 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
                 <span class="text-[10px] font-bold uppercase tracking-widest">Home</span>
             </a>
-            <a href="#services" class="flex flex-col items-center justify-center w-full h-full text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">
+            <a href="#services" class="flex flex-col items-center justify-center w-full h-full text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">
                 <svg class="w-5 h-5 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 </svg>
                 <span class="text-[10px] font-bold uppercase tracking-widest">Services</span>
             </a>
-            <a href="#contact" class="flex flex-col items-center justify-center w-full h-full text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">
+            <a href="#contact" class="flex flex-col items-center justify-center w-full h-full text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 hover:text-cyan-400 transition-colors">
                 <svg class="w-5 h-5 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
