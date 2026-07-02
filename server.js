@@ -68,8 +68,12 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-    console.log(`Make sure you have your Google Credentials loaded in .env`);
-});
+// Start the server (only locally, Vercel handles the serverless execution)
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+        console.log(`Make sure you have your Google Credentials loaded in .env`);
+    });
+}
+
+module.exports = app;

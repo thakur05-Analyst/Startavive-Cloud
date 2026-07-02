@@ -106,7 +106,7 @@
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button class="text-cyan-400 p-2 focus:outline-none">
+                    <button id="openMenuBtn" class="text-cyan-400 p-2 focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -115,6 +115,20 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 bg-slate-950/98 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 transform translate-x-full transition-transform duration-300 md:hidden">
+        <button id="closeMenuBtn" class="absolute top-6 right-4 text-slate-400 hover:text-cyan-400 p-2 focus:outline-none">
+            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <a href="#services" class="mobile-link text-2xl font-bold text-slate-300 hover:text-cyan-400 uppercase tracking-widest">Services</a>
+        <a href="#why-us" class="mobile-link text-2xl font-bold text-slate-300 hover:text-cyan-400 uppercase tracking-widest">Why Choose Us</a>
+        <a href="#process" class="mobile-link text-2xl font-bold text-slate-300 hover:text-cyan-400 uppercase tracking-widest">Process</a>
+        <a href="#contact" class="mobile-link text-2xl font-bold text-slate-300 hover:text-cyan-400 uppercase tracking-widest">Contact</a>
+        <a href="#contact" class="mobile-link mt-8 px-8 py-3 text-lg font-bold text-slate-950 bg-cyan-400 rounded-sm uppercase tracking-widest shadow-[0_0_15px_rgba(6,182,212,0.4)]">Get Started</a>
+    </div>
 
     <main class="flex-grow pt-28 z-10 relative">
         
@@ -473,6 +487,24 @@
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
             });
+        });
+
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobileMenu');
+        const openMenuBtn = document.getElementById('openMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        openMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
         });
     </script>
 </html>
