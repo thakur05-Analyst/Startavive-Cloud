@@ -15,7 +15,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Static assets are handled by Vercel natively
+// Serve static assets for local development
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+app.get('/startavive_cloud_logo_1782920911495.png', (req, res) => res.sendFile(path.join(__dirname, 'startavive_cloud_logo_1782920911495.png')));
+app.get('/startavive_cloud_fb_cover_1782921360324.png', (req, res) => res.sendFile(path.join(__dirname, 'startavive_cloud_fb_cover_1782921360324.png')));
 
 // The endpoint to receive form submissions
 app.post('/api/contact', async (req, res) => {
@@ -70,12 +73,10 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Start the server (only locally, Vercel handles the serverless execution)
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => {
-        console.log(`Server is running on http://localhost:${PORT}`);
-        console.log(`Make sure you have your Google Credentials loaded in .env`);
-    });
-}
+// Start the server (for local development)
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Make sure you have your Google Credentials loaded in .env`);
+});
 
 module.exports = app;
