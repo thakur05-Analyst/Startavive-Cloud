@@ -15,23 +15,25 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static assets
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-app.get('/startavive_cloud_logo_1782920911495.png', (req, res) => res.sendFile(path.join(__dirname, 'startavive_cloud_logo_1782920911495.png')));
-app.get('/startavive_cloud_fb_cover_1782921360324.png', (req, res) => res.sendFile(path.join(__dirname, 'startavive_cloud_fb_cover_1782921360324.png')));
-
-// Initialize auth
-const serviceAccountAuth = new JWT({
-    email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    key: process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n') : '',
-    scopes: [
-        'https://www.googleapis.com/auth/spreadsheets',
-    ],
-});
+// Static assets are handled by Vercel natively
 
 // The endpoint to receive form submissions
 app.post('/api/contact', async (req, res) => {
     try {
+        // Initialize auth inside the request so the app doesn't crash on boot if env vars are missing
+        if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL || !process.env.GOOGLE_PRIVATE_KEY || !process.env.GOOGLE_SHEET_ID) {
+            console.error("Missing Google credentials in environment variables.");
+            return res.status(500).json({ error: 'Server misconfiguration. Please add environment variables.' });
+        }
+
+        const serviceAccountAuth = new JWT({
+            email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+            key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+            scopes: [
+                'https://www.googleapis.com/auth/spreadsheets',
+            ],
+        });
+
         const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, serviceAccountAuth);
         
         // Connect to sheet
